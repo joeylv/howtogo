@@ -1,4 +1,4 @@
-package gueztli
+package image
 
 import (
 	"fmt"

@@ -5,7 +5,7 @@
 
 // The thumbnail package produces thumbnail-size images from
 // larger images.  Only JPEG images are currently supported.
-package thumbnail
+package image
 
 import (
 	"fmt"

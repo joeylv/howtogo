@@ -13,9 +13,9 @@ type rSkills interface {
 
 type rStudent struct {
 	Name string
-	Age   int
-
+	Age  int
 }
+
 func (self rStudent) setName(name string) {
 	self.Name = name
 	fmt.Printf("%s is running\n", self.Name)
@@ -44,14 +44,14 @@ func main() {
 	fmt.Println(inf_type.MethodByName("reading"))            //{reading main func() <invalid Value> 0} true
 
 	fmt.Println("=======================")
-	stu2 := reflect.ValueOf(&stu1)        //获取Value类型
-	stu2.Elem().FieldByName("Name").SetString("josh")     //设置值
+	stu2 := reflect.ValueOf(&stu1)                    //获取Value类型
+	stu2.Elem().FieldByName("Name").SetString("josh") //设置值
 
 	stu2_type := reflect.TypeOf(stu2)
-	fmt.Println(stu2_type.String())                           //main.Student
-	fmt.Println(stu2_type.Name())                             //Student
-	fmt.Println(stu2_type.PkgPath())                          //main
-	fmt.Println(stu2_type.Kind())                             //struct
+	fmt.Println(stu2_type.String())  //main.Student
+	fmt.Println(stu2_type.Name())    //Student
+	fmt.Println(stu2_type.PkgPath()) //main
+	fmt.Println(stu2_type.Kind())    //struct
 	fmt.Println(stu2_type.Size())
 	//fmt.Println(str2.Elem(),age) //jack 11
 

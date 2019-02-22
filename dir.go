@@ -1,7 +1,7 @@
 package main
 
 import (
-	"dbcon"
+	"./dbcon"
 	"fmt"
 	_ "github.com/chai2010/guetzli-go"
 	_ "github.com/mattn/go-sqlite3"
@@ -19,6 +19,7 @@ import (
 //var count, newPath, thumbPath = 0, "", ""
 var wg sync.WaitGroup
 var count = 0
+
 func GetFilesAndDirs(dirPth string) (files []string, dirs []string, err error) {
 	dir, err := ioutil.ReadDir(dirPth)
 	checkErr(err)
@@ -55,7 +56,7 @@ func GetFilesAndDirs(dirPth string) (files []string, dirs []string, err error) {
 			fmt.Println(newPath)
 			err = os.Rename(dirPth+PthSep+fi.Name(), newPath)
 			checkErr(err)
-			dbcon.Insert("Path", strconv.Itoa(count), fi.Name(), "tuku_"+strconv.Itoa(count), )
+			dbcon.Insert("Path", strconv.Itoa(count), fi.Name(), "tuku_"+strconv.Itoa(count))
 			GetFilesAndDirs(newPath)
 		} else {
 			tuku := "tuku_" + strconv.Itoa(count)
